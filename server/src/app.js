@@ -10,7 +10,8 @@ import { notFound, errorHandler } from './middleware/errorMiddleware.js';
 
 const app = express();
 
-// Security and Header management
+app.set('trust proxy', 1);
+
 app.use(helmet());
 
 const allowedOrigins = process.env.ALLOWED_ORIGINS?.split(',') || ['http://localhost:3000'];
