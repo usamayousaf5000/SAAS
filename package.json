@@ -1,0 +1,20 @@
+{
+    "name": "fullstack-booking-app",
+    "version": "1.0.0",
+    "description": "Full Stack Appointment Booking Application",
+    "workspaces": [
+        "client",
+        "server"
+    ],
+    "scripts": {
+        "start": "concurrently \"npm run start --workspace server\" \"npm run start --workspace client\"",
+        "dev": "concurrently \"npm run dev --workspace server\" \"npm run dev --workspace client\"",
+        "build": "npm run build --workspace client"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "concurrently": "^8.2.2"
+    }
+}
