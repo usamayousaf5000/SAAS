@@ -6,7 +6,7 @@ dotenv.config();
 
 const PORT = process.env.PORT || 3001;
 
-app.get('/health', async (req, res) => {
+app.get('/api/health', async (req, res) => {
     try {
         await query('SELECT 1');
         res.json({ status: 'ok' });
@@ -15,6 +15,10 @@ app.get('/health', async (req, res) => {
     }
 });
 
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-});
+if (process.env.NODE_ENV !== 'production') {
+    app.listen(PORT, () => {
+        console.log(`Server running on port ${PORT}`);
+    });
+}
+
+export default app;
